@@ -1,15 +1,14 @@
 def transpose(matrix: list):
-    new_matrix = []
+    matrix_copy = []
     for row in matrix:
-        new_matrix.append([])
+        matrix_copy.append(row[:])
 
-    for row in range(0, len(matrix)):
-        for column in range(0, len(matrix)):
-            new_matrix[row].append(matrix[column][row])
-
-    print(new_matrix)
-
+    for row in range(len(matrix_copy)):
+        for column in range(len(matrix_copy[0])):
+            matrix[column][row] = matrix_copy[row][column]
+    
+    return matrix
 
 if __name__=='__main__':
     numberlist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    transpose(numberlist)
+    print(transpose(numberlist))
