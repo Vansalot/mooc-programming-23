@@ -4,7 +4,7 @@ def input_grades():
     exercises_list = []
 
     while True:
-        grades = input("Exam points and exercises completed(0-20 0-100): ")
+        grades = input("Exam points and exercises completed: ")
         if grades == '':
             break
         gradeslist = grades.split()
@@ -46,22 +46,22 @@ def check_grade_distribution(exam_points_list, exercises_points_list):
         if exam_points_list[index] < 10:
             grade_0 += 1
             continue
-        elif exam_points_list[index] + exercises_points_list[index] < 15:
+        if exam_points_list[index] + exercises_points_list[index] < 15:
             grade_0 += 1
             continue
-        elif exam_points_list[index] + exercises_points_list[index] < 18:
+        if exam_points_list[index] + exercises_points_list[index] < 18:
             grade_1 += 1
             continue
-        elif exam_points_list[index] + exercises_points_list[index] < 21:
+        if exam_points_list[index] + exercises_points_list[index] < 21:
             grade_2 += 1
             continue
-        elif exam_points_list[index] + exercises_points_list[index] < 24:
+        if exam_points_list[index] + exercises_points_list[index] < 24:
             grade_3 += 1
             continue
-        elif exam_points_list[index] + exercises_points_list[index] < 28:
+        if exam_points_list[index] + exercises_points_list[index] < 28:
             grade_4 += 1
             continue
-        elif exam_points_list[index] + exercises_points_list[index] < 31:
+        if exam_points_list[index] + exercises_points_list[index] < 31:
             grade_5 += 1
             continue
 
@@ -69,7 +69,7 @@ def check_grade_distribution(exam_points_list, exercises_points_list):
     return gradelist
 
 def print_grade_distribution(grade_distribution):
-    # Prints grade distribution chart based on the grades.
+    # Prints grade distribution stats based on the grades.
     print("Grade distribution: ")
     printgrade = 5
     for grade in grade_distribution:
@@ -81,6 +81,4 @@ def main():
     exam_points_list, exerciselist = input_grades()
     exercises_points_list = exercises_to_points(exerciselist)
     print_statistics(exam_points_list, exercises_points_list)
-
-
 main()
